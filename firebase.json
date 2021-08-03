@@ -43,6 +43,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "hidebiyori",
     "public": "build/web",
     "ignore": [
       "firebase.json",
