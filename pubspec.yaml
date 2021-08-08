@@ -14,10 +14,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  firebase_core: ^0.4.0+9
-  firebase_analytics: ^5.0.2
-  firebase_auth: ^0.14.0+5
-  cloud_firestore: ^0.12.9+5
+  # https://firebase.google.com/docs/flutter/setup
+  # https://firebase.flutter.dev/docs/overview/
+  firebase_core: ^1.4.0
+  firebase_analytics: ^8.2.0
+  firebase_auth: ^3.0.1
+  cloud_firestore: ^2.4.0
 
   cupertino_icons: ^1.0.2
 
