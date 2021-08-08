@@ -1,6 +1,6 @@
 # app
 
-hidebiyori products
+Application for hidebiyori
 
 ## Getting Started
 
