@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "359395326641",
+    "project_id": "hidebiyori-app",
+    "storage_bucket": "hidebiyori-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359395326641:android:45ddbbabf2243e4ed0c090",
+        "android_client_info": {
+          "package_name": "com.hidebiyori.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359395326641-unr0m92eshamf2ksqk89q1qskoqu3mpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJtrHNkBJZN4f8TtbA-VCrp2s1D9CyiGk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359395326641-unr0m92eshamf2ksqk89q1qskoqu3mpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
