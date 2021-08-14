@@ -5,11 +5,14 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  runApp(MyApp(firestore: firestore));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.firestore}) : super(key: key);
+
+  final FirebaseFirestore firestore;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +21,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page test'),
+      home: MyHomePage(
+        firestore: firestore,
+        title: 'Flutter Demo Home Page test',
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({
+    Key? key,
+    required this.firestore,
+    required this.title,
+  }) : super(key: key);
 
+  final FirebaseFirestore firestore;
   final String title;
 
   @override
@@ -35,12 +46,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  CollectionReference users = FirebaseFirestore.instance.collection('users');
-
   Future<void> addUser() {
     _incrementCounter();
 
-    return users
+    return widget.firestore.collection('users')
       .add({
         'full_name': "fullName",
         'company': "company",
