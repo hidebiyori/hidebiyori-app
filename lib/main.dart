@@ -49,14 +49,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> addUser() {
     _incrementCounter();
 
-    return widget.firestore.collection('users')
-      .add({
-        'full_name': "fullName",
-        'company': "company",
-        'age': 36,
-      })
-      .then((value) => print("User Added"))
-      .catchError((error) => print("Failed to add user: $error"));
+    return widget.firestore
+        .collection('users')
+        .add({
+          'full_name': "fullName",
+          'company': "company",
+          'age': 36,
+        })
+        .then((value) => print("User Added"))
+        .catchError((error) => print("Failed to add user: $error"));
   }
 
   void _incrementCounter() {
