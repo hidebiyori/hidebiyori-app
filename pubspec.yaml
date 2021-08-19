@@ -14,6 +14,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  cupertino_icons: ^1.0.2
+
   # https://firebase.google.com/docs/flutter/setup
   # https://firebase.flutter.dev/docs/overview/
   # https://pub.dev/publishers/firebase.google.com/packages
@@ -22,7 +24,8 @@ dependencies:
   firebase_auth: ^3.0.1
   cloud_firestore: ^2.4.0
 
-  cupertino_icons: ^1.0.2
+  # remove the leading hash (#) from the URL
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
