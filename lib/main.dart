@@ -19,14 +19,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'hidebiyori',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(
-        firestore: firestore,
-        title: 'Flutter Demo Home Page test',
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MyHomePage(
+              firestore: firestore,
+              title: 'Application for hidebiyori',
+            ),
+      },
     );
   }
 }
