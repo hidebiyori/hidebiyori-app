@@ -4,5 +4,9 @@ service cloud.firestore {
     match /users/{document=**} {
       allow read, write: if true;
     }
+
+    match /bookmarks/{document=**} {
+      allow read, write: if true;
+    }
   }
 }

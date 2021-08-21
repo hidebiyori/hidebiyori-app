@@ -73,6 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference bookmarks = widget.firestore.collection('bookmarks');
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -87,6 +89,28 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            FutureBuilder<DocumentSnapshot>(
+              future: bookmarks.doc('home').get(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<DocumentSnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return Text("Something went wrong");
+                }
+
+                if (snapshot.hasData && !snapshot.data!.exists) {
+                  return Text("Document does not exist");
+                }
+
+                if (snapshot.connectionState == ConnectionState.done) {
+                  Map<String, dynamic> data =
+                      snapshot.data!.data() as Map<String, dynamic>;
+                  var bookmark = data['bookmarks'][0];
+                  return Text("${bookmark['title']} ${bookmark['url']}");
+                }
+
+                return Text("loading");
+              },
             ),
           ],
         ),
