@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
@@ -106,7 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   Map<String, dynamic> data =
                       snapshot.data!.data() as Map<String, dynamic>;
                   var bookmark = data['bookmarks'][0];
-                  return Text("${bookmark['title']} ${bookmark['url']}");
+                  var url = bookmark['url'];
+                  return ElevatedButton(
+                    onPressed: () async {
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      }
+                    },
+                    child: Text("${bookmark['title']}"),
+                  );
                 }
 
                 return Text("loading");
