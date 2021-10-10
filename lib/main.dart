@@ -106,16 +106,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 if (snapshot.connectionState == ConnectionState.done) {
                   Map<String, dynamic> data =
                       snapshot.data!.data() as Map<String, dynamic>;
-                  var bookmark = data['bookmarks'][0];
-                  var url = bookmark['url'];
-                  return ElevatedButton(
-                    onPressed: () async {
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      }
-                    },
-                    child: Text("${bookmark['title']}"),
-                  );
+                  var bookmarks = data['bookmarks'];
+                  return Expanded(
+                      child: GridView.count(
+                    crossAxisCount: 4,
+                    children: bookmarks.map<Widget>((bookmark) {
+                      var url = bookmark['url'];
+                      return Center(
+                        child: ElevatedButton(
+                          onPressed: () async {
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            }
+                          },
+                          child: Text("${bookmark['title']}"),
+                        ),
+                      );
+                    }).toList(),
+                  ));
                 }
 
                 return Text("loading");
