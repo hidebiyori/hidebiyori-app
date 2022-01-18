@@ -20,9 +20,9 @@ dependencies:
   # https://firebase.flutter.dev/docs/overview/
   # https://pub.dev/publishers/firebase.google.com/packages
   firebase_core: ^1.4.0
-  firebase_analytics: ^8.2.0
+  firebase_analytics: ^9.0.5
   firebase_auth: ^3.0.1
-  cloud_firestore: ^2.4.0
+  cloud_firestore: ^3.1.6
 
   # remove the leading hash (#) from the URL
   url_strategy: ^0.2.0
