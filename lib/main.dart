@@ -109,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   var bookmarks = data['bookmarks'];
                   return Expanded(
                       child: GridView.count(
-                    crossAxisCount: 4,
+                    crossAxisCount: 3,
                     children: bookmarks.map<Widget>((bookmark) {
                       var url = bookmark['url'];
                       return Center(
